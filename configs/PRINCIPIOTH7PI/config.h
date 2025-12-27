@@ -28,8 +28,6 @@
 
 #define USB_DETECT_PIN    PE2
 
-
-
 #define BEEPER_PIN           PA15
 #define MOTOR1_PIN           PA0
 #define MOTOR2_PIN           PA1
@@ -42,13 +40,10 @@
 #define RX_PPM_PIN           PE0
 #define LED_STRIP_PIN        PA8
 
-// Used in rev 1
-#define UART1_TX_PIN         PA9
-#define UART1_RX_PIN         PA10
 
-// Unused
-//#define UART2_TX_PIN         PD5
-//#define UART2_RX_PIN         PD6
+// Debug connector
+#define UART2_TX_PIN         PD5
+#define UART2_RX_PIN         PD6
 
 // Telem to Rasberry Pi
 #define UART3_TX_PIN         PD8
@@ -126,6 +121,7 @@
 #define SDIO_D2_PIN          PC10
 #define SDIO_D3_PIN          PC11
 #define SDCARD_DETECT_PIN PD15 // TODO: Is this needed?
+#define SDCARD_DETECT_INVERTED
 
 #define SDIO_DEVICE SDIODEV_1
 #define SDIO_USE_4BIT 1
@@ -163,9 +159,9 @@
 
 // Mag
 #define USE_MAG
-#define USE_MAG_IST8310
+#define USE_MAG_LIS2MDL
 #define MAG_I2C_INSTANCE (I2CDEV_2)
-#define MAG_I2C_ADDRESS      0x0E
+#define MAG_I2C_ADDRESS      0x1E
 #define MAG_ALIGN            CW90_DEG
 #define MAG_ALIGN_YAW        900
 
@@ -210,7 +206,7 @@ Beeper (TIM2 CH1)
 // Other features:
 #define DEFAULT_RX_FEATURE FEATURE_RX_SERIAL
 #define SERIALRX_UART      SERIAL_PORT_USART8
-#define GPS_UART           SERIAL_PORT_USART4
+#define GPS_UART           SERIAL_PORT_UART4
 
 // PINIO
 // PINIO 1 is the 10V enable pin for VTX power
@@ -221,4 +217,3 @@ Beeper (TIM2 CH1)
 #define PINIO2_PIN           PD11
 #define PINIO2_CONFIG 1 // PINIO_CONFIG_MODE_OUT_PP
 #define PINIO2_BOX 40 // User 2
-
